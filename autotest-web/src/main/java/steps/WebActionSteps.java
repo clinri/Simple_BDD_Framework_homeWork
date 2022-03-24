@@ -86,6 +86,9 @@ public class WebActionSteps {
      */
     @Когда("ввести в поле {string} значение {string}")
     public void fillTheField(String field, String value) {
+        if (value.equals("Тестовая проблема")){
+            value = "Тестовое название проблемы [" + String.format("%05d", ((int) (Math.random() * 10000))) + "]";
+        }
         SelenideElement fieldElement = pageManager
                 .getCurrentPage()
                 .getElement(field);
@@ -93,6 +96,22 @@ public class WebActionSteps {
                 .shouldBe(Condition.visible)
                 .setValue(value);
         LOGGER.info("в поле '{}' введено значение '{}'", field, value);
+    }
+
+    /**
+     * Ввод значения в элемент с выпадающим списком
+     *
+     * @param field - наименование элемента
+     * @param value - значение
+     */
+    @Когда("выбрать в выпадающем списке поля {string} значение {string}")
+    public void fillTheOptionField(String field, String value) {
+        SelenideElement fieldElement = pageManager
+                .getCurrentPage()
+                .getElement(field);
+        fieldElement
+                .selectOptionByValue(value);
+        LOGGER.info("в выпадающем списке поля '{}' выбрано значение '{}'", field, value);
     }
 
     /**

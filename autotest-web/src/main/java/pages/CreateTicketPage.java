@@ -15,7 +15,7 @@ public class CreateTicketPage extends WebPage {
     @Name("поле Queue")
     private SelenideElement queueField = $x("//select[@id='id_queue']");
 
-    @Name("Description of your issue")
+    @Name("поле Description of your issue")
     private SelenideElement descriptionField = $x("//textarea[@id='id_body']");
 
 
