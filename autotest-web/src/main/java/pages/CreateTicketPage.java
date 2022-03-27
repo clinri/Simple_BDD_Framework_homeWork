@@ -18,5 +18,16 @@ public class CreateTicketPage extends WebPage {
     @Name("поле Description of your issue")
     private SelenideElement descriptionField = $x("//textarea[@id='id_body']");
 
+    @Name("поле Priority")
+    private SelenideElement priorityField = $x("//select[@id='id_priority']");
+
+    @Name("поле Due on")
+    private SelenideElement dueDateField = $x("//input[@id='id_due_date']");
+
+    @Name("поле Your E-Mail Address")
+    private SelenideElement emailField = $x("//input[@id='id_submitter_email']");
+
+    @Name("кнопка Submit Ticket")
+    private SelenideElement SubmitTicketButton = $x("//button[@class='btn btn-primary btn-lg btn-block']");
 
 }
